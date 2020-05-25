@@ -1,7 +1,7 @@
 <template>
   <div
     id="app"
-    class="w-full h-full flex flex-col items-center justify-center bg-blue-100"
+    class="w-full h-full flex flex-col items-center justify-center bg-blue-100 p-4 text-center"
   >
     <h1 v-if="!gameStarted || isFinished" class="text-4xl text-gray-700 mb-5">
       Pop Quizo: Explore & Play Fun Quizzes
@@ -68,7 +68,7 @@
           <line x1="18" y1="6" x2="6" y2="18"></line>
           <line x1="6" y1="6" x2="18" y2="18"></line>
         </svg>
-        <span class="text-xl text center">{{ nbOfWrongAnswers }} wrong</span>
+        <span class="text-xl text-center">{{ nbOfWrongAnswers }} wrong</span>
       </div>
     </section>
     <section
@@ -129,6 +129,7 @@ export default {
   }),
   methods: {
     async loadQuestion() {
+      if (this.numberOfQuestions <= 0) return;
       this.loading = true;
       this.gameStarted = true;
       const response = await getQuestions(1);
@@ -157,7 +158,7 @@ export default {
     async nextQuestion() {
       this.resetState();
 
-      if (this.numberOfQuestions - this.currentQuestion === 0) {
+      if (this.numberOfQuestions - this.currentQuestion <= 0) {
         this.isFinished = true;
       } else {
         await this.loadQuestion();
