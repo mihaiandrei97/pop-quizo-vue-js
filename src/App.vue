@@ -51,7 +51,7 @@
         >
           <polyline points="20 6 9 17 4 12"></polyline>
         </svg>
-        <span class="text-xl">{{ nbOfCorectAnswers }} correct</span>
+        <span class="text-xl text-center">{{ nbOfCorectAnswers }} correct</span>
       </div>
       <div class="mr-6 flex items-center justify-center content-center p-4">
         <svg
@@ -68,7 +68,7 @@
           <line x1="18" y1="6" x2="6" y2="18"></line>
           <line x1="6" y1="6" x2="18" y2="18"></line>
         </svg>
-        <span class="text-xl">{{ nbOfWrongAnswers }} wrong</span>
+        <span class="text-xl text center">{{ nbOfWrongAnswers }} wrong</span>
       </div>
     </section>
     <section
